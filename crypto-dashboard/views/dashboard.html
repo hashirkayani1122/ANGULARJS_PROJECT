@@ -1,0 +1,46 @@
+<div class="dashboard-container">
+    <h1>Cryptocurrency Market Dashboard</h1>
+    
+    <div class="stats-row">
+        <crypto-card ng-repeat="stat in stats" 
+                     title="{{stat.title}}" 
+                     value="{{stat.value}}" 
+                     change="{{stat.change}}" 
+                     icon="{{stat.icon}}">
+        </crypto-card>
+    </div>
+    
+    <div class="charts-container">
+        <div class="chart-card full-width">
+            <div class="chart-header">
+                <h2>Price History (15 Days)</h2>
+                <div class="chart-actions">
+                    <button title="1D"><i class="fas fa-chart-line"></i> 1D</button>
+                    <button title="1W"><i class="fas fa-chart-area"></i> 1W</button>
+                    <button title="1M"><i class="fas fa-chart-bar"></i> 1M</button>
+                </div>
+            </div>
+            <div class="chart-container">
+                <line-chart data="chartData" labels="chartLabels" options="chartOptions"></line-chart>
+            </div>
+        </div>
+        
+        <div class="chart-card">
+            <div class="chart-header">
+                <h2>Transaction Distribution</h2>
+            </div>
+            <div class="chart-container">
+                <bar-chart data="histogramData" labels="histogramLabels" options="histogramOptions"></bar-chart>
+            </div>
+        </div>
+        
+        <div class="chart-card">
+            <div class="chart-header">
+                <h2>Market Cap Distribution</h2>
+            </div>
+            <div class="chart-container">
+                <pie-chart data="pieData" labels="pieLabels" options="pieOptions"></pie-chart>
+            </div>
+        </div>
+    </div>
+</div>

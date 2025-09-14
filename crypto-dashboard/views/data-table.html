@@ -1,0 +1,51 @@
+<div class="data-container">
+    <h1>Cryptocurrency Market Data</h1>
+    
+    <div class="filter-controls">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" ng-model="searchQuery" placeholder="Search cryptocurrencies...">
+        </div>
+        
+        <div class="filter-select">
+            <label for="currencyFilter">Filter:</label>
+            <select id="currencyFilter" ng-model="selectedCurrency" ng-options="currency for currency in currencies">
+            </select>
+        </div>
+    </div>
+    
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Price (USD)</th>
+                    <th>Market Cap</th>
+                    <th>24h Market Volume</th>
+                    <th>24h Change</th>
+                    <th>Circulating Supply</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in filterData()">
+                    <td>
+                        <div class="crypto-badge">
+                            <span class="crypto-icon {{item.symbol.toLowerCase()}}">{{item.symbol.charAt(0)}}</span>
+                            {{item.name}}
+                        </div>
+                    </td>
+                    <td>{{item.symbol}}</td>
+                    <td>${{item.price | number}}</td>
+                    <td>{{formatMarketCap(item.marketCap)}}</td>
+                    <td>${{item.volume | number}}</td>
+                    <td ng-class="{positive: item.change >= 0, negative: item.change < 0}">
+                        <i class="fas" ng-class="item.change >= 0 ? 'fa-arrow-up' : 'fa-arrow-down'"></i>
+                        {{item.change | number:2}}%
+                    </td>
+                    <td>{{item.supply | number}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
