@@ -67,7 +67,3 @@ Styling: Custom CSS with CSS variables
 Icons: Font Awesome
 
 Fonts: Google Fonts (Inter)
-
-│   └── data-table.html # Data table view template
-
-└── package.json        # Project dependencies
