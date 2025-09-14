@@ -68,10 +68,6 @@ Icons: Font Awesome
 
 Fonts: Google Fonts (Inter)
 
-├── views/
-
-│   ├── dashboard.html  # Dashboard view template
-
 │   └── data-table.html # Data table view template
 
 └── package.json        # Project dependencies
